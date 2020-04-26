@@ -1,0 +1,75 @@
+ 
+ <div id="moviesbody">
+ 
+    <div class="login" *ngIf="showLogin"> 
+   
+      
+      <div class="username">
+       Username: <br>
+       <input type="text"
+       [(ngModel)] = "userName">
+      </div>
+      
+      <div class="password">
+       Password: <br>
+       <input type="password"> 
+      </div>
+   
+      <div>
+       <button class="button" (click)="toggleCards()"> Login </button>
+      </div>
+       
+      
+    </div>
+     
+   
+      
+      
+   
+      
+      <div class="cards" *ngIf="showCards">  
+   
+       <h2 id="welcometxt" > Welcome back {{ userName }} ! </h2>
+   
+       <br> 
+       <p id="welcometext">
+       We are an online database of information related to films, and streaming content online.
+       Including cast, production crew and personal biographies, plot summaries, trivia, fan and critical reviews, and ratings.
+       As of April 2020, we have approx 6 million titles (including episodes) as well as 83 million registered users.
+       </p>
+   
+   
+       
+   
+    
+   
+   <div class="container">
+       <div class="row">
+         <div class="col-md-5 mx-auto my-5" *ngFor="let movie of movies">
+            
+           <div class="card h-100"> 
+            
+             <div class="card-body">
+               <img [src]="movie.imgUrl" 
+               [style.width.px]="imageWidth"
+               [style.height.px]="imageHeight"
+               [style.margin.px]="imageMargin">
+               
+                 <h2 class="card-title"> {{movie.name}} </h2>
+       
+                   <p> Rating: {{movie.rating}} </p>
+                   <p> Category: {{movie.category}} </p>
+                   <p> Actors: {{movie.actor}} </p>
+                   <p *ngIf= "movie.awardUrl"> Award: <img id="awrdimg" [src]="movie.awardUrl"> </p>
+                   <p> {{movie.description}} </p>
+              </div>
+             
+           </div>
+         </div>
+       </div>
+   </div>
+   
+       
+   </div>
+   
+   </div>
